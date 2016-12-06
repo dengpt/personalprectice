@@ -16,4 +16,5 @@ public interface IUserService {
 	public List<User> findListByLastName(String lastName);
 	public Page<User> findListByAgeGreaterThan(int age, int pageNumber, int pageSize, Sort sort);
 	public Page<User> findUserList(int pageNumber, int pageSize, Sort sort);
+	User findOne(User user);
 }

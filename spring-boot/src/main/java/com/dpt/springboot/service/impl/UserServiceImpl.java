@@ -3,6 +3,7 @@ package com.dpt.springboot.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -48,5 +49,11 @@ public class UserServiceImpl implements IUserService {
 		MongoPage page = new MongoPage(pageNumber - 1, pageSize, new Sort(Sort.Direction.DESC, "age"));
 		Page<User> userPage = userRepository.findAll(page);
 		return userPage;
+	}
+	@Override
+	public User findOne(User user) {
+		Example<User> e = Example.of(user);
+		User result = userRepository.findOne(e);
+		return result;
 	}
 }

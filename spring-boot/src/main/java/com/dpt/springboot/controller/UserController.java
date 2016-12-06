@@ -49,4 +49,11 @@ public class UserController {
 	public Page<User> allUsers(@PathVariable("pageSize") int pageSize, @PathVariable("pageNumber") int pageNumber){
 		return userServiceImpl.findUserList(pageNumber, pageSize, new Sort(Sort.Direction.DESC, "age"));
 	}
+	
+	@RequestMapping(method = RequestMethod.GET)
+	public User getUser(User user){
+		System.out.println(user);
+		user = userServiceImpl.findOne(user);
+		return user;
+	}
 }
