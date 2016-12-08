@@ -1,0 +1,25 @@
+# application.yml
+spring:
+  data:
+    mongodb:
+      uri:mongodb://uisftech:uisftech@localhost:27017/uisftech
+connection: 
+  userName: uisftech
+  password: uisftech
+  address: 192.168.1.1
+  port: 80801
+# additional configuration as required
+myProps: #自定义的属性和值  
+  simpleProp: simplePropValue  
+  arrayProps: 1,2,3,4,5  
+  listProp1:  
+    - name: abc  
+      value: abcValue  
+    - name: efg  
+      value: efgValue  
+  listProp2:  
+    - config2Value1  
+    - config2Vavlue2  
+  mapProps:  
+    key1: value1  
+    key2: value2
