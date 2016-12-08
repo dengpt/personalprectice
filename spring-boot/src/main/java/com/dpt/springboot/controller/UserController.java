@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dpt.springboot.bean.User;
+import com.dpt.springboot.exception.SpringBootException;
 import com.dpt.springboot.service.IUserService;
 
 @RestController
@@ -55,5 +56,14 @@ public class UserController {
 		System.out.println(user);
 		user = userServiceImpl.findOne(user);
 		return user;
+	}
+	
+	@RequestMapping(value = "/advice", method = RequestMethod.GET)
+	public String testError(){
+		if(2 != 1){
+			throw new SpringBootException("123","2 != 1");
+		}
+		
+		return "/errow";
 	}
 }
