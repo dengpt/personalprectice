@@ -16,12 +16,13 @@ import com.dpt.springboot.exception.SpringBootException;
 @ControllerAdvice(basePackageClasses = UserController.class)
 public class FooControllerAdvice extends ResponseEntityExceptionHandler {
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	@ExceptionHandler(SpringBootException.class)
 	@ResponseBody
 	ResponseEntity<?> handleControllerException(HttpServletRequest request, Throwable ex){
 		HttpStatus status = getStatus(request);
 		System.out.println("==========================handleControllerException=============================");
-		return new ResponseEntity<>(new CustomerErrorType(status.value(), ex.getMessage()), status);
+		return new ResponseEntity(new CustomerErrorType(status.value(), ex.getMessage()), status);
 	}
 	
 	private HttpStatus getStatus(HttpServletRequest request){

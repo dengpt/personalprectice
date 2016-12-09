@@ -15,4 +15,12 @@ public class HelloController {
 	public String hello() {
 		return "Hello World!";
 	}
+	@RequestMapping("/")
+    public String index() {
+        return "index";
+    }
+	@RequestMapping("/login")
+	public String login(){
+		return "login";
+	}
 }
